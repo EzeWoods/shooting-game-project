@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEditor.Experimental;
 using UnityEngine;
 
-public class playerController : MonoBehaviour // IDamage
+public class playerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
+    [SerializeField] LayerMask ignoreMask;
 
+    [SerializeField] int HP;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
     [SerializeField] int jumpMax;
@@ -14,6 +16,8 @@ public class playerController : MonoBehaviour // IDamage
     [SerializeField] int gravity;
 
     [SerializeField] int shootDist;
+    [SerializeField] int shootDamage;
+    [SerializeField] float shootRate;
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -61,9 +65,9 @@ public class playerController : MonoBehaviour // IDamage
             playerVel = Vector3.zero;
         }
 
-        if (Input.GetButton("Fire1") && !isShooting)
+        if (Input.GetButton("Shoot") && !isShooting)
         {
-
+            StartCoroutine(shoot());
         }
     }
 
@@ -90,5 +94,35 @@ public class playerController : MonoBehaviour // IDamage
         }
     }
 
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreMask))
+        {
+            Debug.Log(hit.collider.name);
+
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
+            if (dmg != null)
+            {
+                dmg.takeDamage(shootDamage);
+            }
+        }
+
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }
+
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+
+        if (HP <= 0)
+        {
+
+        }
+    }
 
 }
