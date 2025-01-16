@@ -6,6 +6,7 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
     [SerializeField] int HP;
+    [SerializeField] int Points;
 
     Color colorOrig;
 
@@ -13,6 +14,7 @@ public class enemyAI : MonoBehaviour, IDamage
     void Start()
     {
         colorOrig = model.material.color;
+        gameManager.instance.updateGameGoal(1);
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             // Dead
             Destroy(gameObject);
+            gameManager.instance.updateGameGoal(-1);
+            gameManager.instance.updatePlayerPoints(Points);
         }
 
     }
