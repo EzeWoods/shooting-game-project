@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
+    [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
     [SerializeField] int HP;
+    [SerializeField] int Points;
     [SerializeField] int damageAmount;
+    [SerializeField] float detectionRange;
     [SerializeField] float attackRange;
     [SerializeField] float attackCooldown;
+
+    [SerializeField] GameObject handDamagePrefab;
 
     bool playerInRange;
     Color colorOrig;
     float lastAttackTime;
 
+
     // Start is called before the first frame update
     void Start()
     {
         colorOrig = model.material.color;
+        gameManager.instance.updateGameGoal(1);
         lastAttackTime = 0f;
     }
 
@@ -26,15 +34,17 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange)
         {
-            if (Time.time >= lastAttackTime + attackCooldown)
+            MoveTowardsPlayer();
+            if (Time.time > lastAttackTime + attackCooldown)
             {
                 AttackPlayer();
             }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+       if (other.CompareTag("Player"))
         {
             playerInRange = true;
         }
@@ -44,7 +54,22 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+            playerInRange = false;
+            agent.ResetPath();
+        }
+    }
+
+    private void MoveTowardsPlayer()
+    {
+        playerController player = FindObjectOfType<playerController>();
+        if (player != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer <= detectionRange)
+            {
+            agent.SetDestination(player.transform.position);
+
+            }
         }
     }
 
@@ -53,9 +78,16 @@ public class enemyAI : MonoBehaviour, IDamage
         playerController player = FindObjectOfType<playerController>();
         if (player != null)
         {
-            player.takeDamage(damageAmount);
+            float distanceToplayer = Vector3.Distance(transform.position, player.transform.position);
+            if (distanceToplayer < attackRange)
+            {
+                GameObject handDamage = Instantiate(handDamagePrefab, transform.position, Quaternion.identity);
+            handDamage.transform.position = transform.position + transform.forward;
             lastAttackTime = Time.time;
-        }
+         }
+
+      }
+            
     }
 
     public void takeDamage(int amount)
@@ -65,9 +97,10 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            //Enemy dies
-            Debug.Log("Enemy is dead");
+            // Dead
             Destroy(gameObject);
+            gameManager.instance.updateGameGoal(-1);
+            gameManager.instance.updatePlayerPoints(Points);
         }
 
     }

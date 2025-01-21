@@ -23,14 +23,15 @@ public class playerController : MonoBehaviour, IDamage
     Vector3 playerVel;
 
     int jumpCount;
-   
+    int HPOrig;
 
     bool isShooting;
     bool isSprinting;
 
     void Start()
     {
-
+        HPOrig = HP;
+        updatePlayerUI();
     }
 
     // Update is called once per frame
@@ -118,11 +119,26 @@ public class playerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+        updatePlayerUI();
+        StartCoroutine(flashScreenDamage());
 
         if (HP <= 0)
         {
-
+            gameManager.instance.youLose();
         }
+    }
+
+    IEnumerator flashScreenDamage()
+    {
+        gameManager.instance.playerDamageScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerDamageScreen.SetActive(false);
+    }
+
+    public void updatePlayerUI()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        
     }
 
 }
