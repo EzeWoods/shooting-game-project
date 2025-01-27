@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,19 +6,23 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
+
     [SerializeField] int HP;
     [SerializeField] int Points;
-    [SerializeField] int damageAmount;
     [SerializeField] float detectionRange;
+
+    [SerializeField] int damageAmount;
     [SerializeField] float attackRange;
     [SerializeField] float attackCooldown;
 
     [SerializeField] GameObject handDamagePrefab;
 
     bool playerInRange;
+
     Color colorOrig;
     float lastAttackTime;
 
+    Vector3 playerDir;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +43,12 @@ public class enemyAI : MonoBehaviour, IDamage
                 AttackPlayer();
             }
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-       if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
         }
@@ -67,7 +71,7 @@ public class enemyAI : MonoBehaviour, IDamage
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToPlayer <= detectionRange)
             {
-            agent.SetDestination(player.transform.position);
+                agent.SetDestination(player.transform.position);
 
             }
         }
@@ -82,27 +86,26 @@ public class enemyAI : MonoBehaviour, IDamage
             if (distanceToplayer < attackRange)
             {
                 GameObject handDamage = Instantiate(handDamagePrefab, transform.position, Quaternion.identity);
-            handDamage.transform.position = transform.position + transform.forward;
-            lastAttackTime = Time.time;
-         }
-
-      }
-            
+                handDamage.transform.position = transform.position + transform.forward;
+                lastAttackTime = Time.time;
+            }
+        }
     }
 
     public void takeDamage(int amount)
     {
         HP -= amount;
+
         StartCoroutine(flashRed());
 
         if (HP <= 0)
         {
             // Dead
+            Destroy(gameObject, 1f);
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
             gameManager.instance.updatePlayerPoints(Points);
         }
-
     }
 
     IEnumerator flashRed()
