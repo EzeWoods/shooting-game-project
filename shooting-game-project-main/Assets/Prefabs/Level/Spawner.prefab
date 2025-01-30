@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3648597223513659627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.5, y: 0, z: 38.6}
+  m_LocalPosition: {x: 44.5, y: 0, z: 42.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3707611819838376122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56, y: 0, z: -3.07}
+  m_LocalPosition: {x: -42.35, y: 0, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -358,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5861367833517583840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.4, y: 0, z: 31.6}
+  m_LocalPosition: {x: -24.6, y: 0, z: 38.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -453,7 +453,7 @@ Transform:
   - {fileID: 9036908915164908395}
   - {fileID: 8256456632605291258}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7633387900131428425
 MonoBehaviour:
@@ -467,7 +467,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce93ace472e102c45b8eb129ede59bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 1094320384250768819, guid: 09df45a162f5f124bafbe145e1b4fdf2, type: 3}
+  objectToSpawn:
+  - {fileID: 1094320384250768819, guid: 09df45a162f5f124bafbe145e1b4fdf2, type: 3}
+  - {fileID: 3009389380128516680, guid: 958a327a4994fac44b70b63de1edd405, type: 3}
+  - {fileID: 2436148476503486309, guid: 08ac5d5f034f05147a43e47333140d0e, type: 3}
   roundNumber: 0
   numToSpawn: 4
   enemiesPerRound: 5
@@ -480,6 +483,7 @@ MonoBehaviour:
   - {fileID: 648249079614760793}
   - {fileID: 9036908915164908395}
   - {fileID: 8256456632605291258}
+  roundToWin: 11
 --- !u!33 &2569259024602843274
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -556,7 +560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8006131074187906119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.2, y: 0, z: -40.51}
+  m_LocalPosition: {x: 42.2, y: 0, z: -38.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

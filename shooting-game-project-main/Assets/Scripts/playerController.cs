@@ -21,8 +21,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     [SerializeField] float shootRate;
     [SerializeField] gunStats startingGun;
 
-    [SerializeField] ParticleSystem muzzleFlashPrefab;  // Prefab for the muzzle flash effect
-    [SerializeField] Transform muzzleFlashPosition; // Position where the muzzle flash should appear
+    [SerializeField] GameObject muzzleFlash; // Position where the muzzle flash should appear
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -124,16 +123,17 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunList[gunListPos].ammoCurrent--;
 
         // Instantiate and play muzzle flash effect
-        if (muzzleFlashPrefab != null && muzzleFlashPosition != null)
-        {
-            ParticleSystem muzzleFlash = Instantiate(muzzleFlashPrefab, muzzleFlashPosition.position, muzzleFlashPosition.rotation);
-            muzzleFlash.Play();
-            Destroy(muzzleFlash.gameObject, muzzleFlash.main.duration);
-        }
-        else
-        {
-            Debug.LogError("Muzzle flash prefab or position is not assigned.");
-        }
+        //if (muzzleFlashPrefab != null && muzzleFlashPosition != null)
+        //{
+        //    ParticleSystem muzzleFlash = Instantiate(muzzleFlashPrefab, muzzleFlashPosition.position, muzzleFlashPosition.rotation);
+        //    muzzleFlash.Play();
+        //    Destroy(muzzleFlash.gameObject, muzzleFlash.main.duration);
+        //}
+        //else
+        //{
+        //    Debug.LogError("Muzzle flash prefab or position is not assigned.");
+        //}
+        StartCoroutine(flashMuzzleFire());
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreMask))
@@ -151,6 +151,12 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
     }
 
+    IEnumerator flashMuzzleFire()
+    {
+        muzzleFlash.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        muzzleFlash.SetActive(false);
+    }
     IEnumerator reload()
     {
         if (gunList[gunListPos].ammoStored <= 0 || gunList[gunListPos].ammoCurrent == gunList[gunListPos].ammoMax)
@@ -199,6 +205,22 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         {
             gameManager.instance.youLose();
         }
+    }
+
+    public void healDamage()
+    {
+        HP = HPOrig;
+        updatePlayerUI();
+    }
+
+    public int getHealth()
+    {
+        return HP;
+    }
+
+    public int getMaxHealth()
+    {
+        return HPOrig;
     }
 
     IEnumerator flashScreenDamage()
@@ -255,16 +277,16 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
 
-        muzzleFlashPosition = gunModel.transform.Find("MuzzleFlashPosition"); // Update muzzle flash position
+        //muzzleFlashPosition = gunModel.transform.Find("MuzzleFlashPosition"); // Update muzzle flash position
 
-        if (muzzleFlashPosition == null)
-        {
-            Debug.LogError("MuzzleFlashPosition not found on the gun model.");
-        }
-        else
-        {
-            Debug.Log("MuzzleFlashPosition updated successfully.");
-        }
+        //if (muzzleFlashPosition == null)
+        //{
+        //    Debug.LogError("MuzzleFlashPosition not found on the gun model.");
+        //}
+        //else
+        //{
+        //    Debug.Log("MuzzleFlashPosition updated successfully.");
+        //}
     }
 
     public gunStats getCurrentGun()

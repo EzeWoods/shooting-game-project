@@ -19,7 +19,7 @@ public class ZombieHanddamage : MonoBehaviour
                 dmg.takeDamage(damageAmount);
             }
 
-            Destroy(gameObject, destroyTime);
+            //Destroy(gameObject, destroyTime);
         }
     }
 

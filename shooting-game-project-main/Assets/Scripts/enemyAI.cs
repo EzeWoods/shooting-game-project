@@ -6,8 +6,10 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
+    [SerializeField] Transform headPos;
 
     [SerializeField] int HP;
+    [SerializeField] int faceTargetSpeed;
     [SerializeField] int Points;
     [SerializeField] float detectionRange;
 
@@ -23,6 +25,7 @@ public class enemyAI : MonoBehaviour, IDamage
     float lastAttackTime;
 
     Vector3 playerDir;
+    bool isInAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +38,10 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        //if (playerInRange)
-        //{
+        if(agent.isActiveAndEnabled)
+        {
             MoveTowardsPlayer();
-            if (Time.time > lastAttackTime + attackCooldown)
-            {
-                AttackPlayer();
-            }
-        //}
-
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,6 +63,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     private void MoveTowardsPlayer()
     {
+        playerDir = gameManager.instance.player.transform.position - headPos.position;
         playerController player = FindObjectOfType<playerController>();
         if (player != null)
         {
@@ -72,24 +71,33 @@ public class enemyAI : MonoBehaviour, IDamage
             if (distanceToPlayer <= detectionRange)
             {
                 agent.SetDestination(player.transform.position);
+            }
 
+            if(playerDir.magnitude <= attackRange)
+            {
+                if(!isInAttack)
+                {
+                    StartCoroutine(attack());
+                }
             }
         }
     }
-
-    private void AttackPlayer()
+    
+    void faceTarget()
     {
-        playerController player = FindObjectOfType<playerController>();
-        if (player != null)
-        {
-            float distanceToplayer = Vector3.Distance(transform.position, player.transform.position);
-            if (distanceToplayer < attackRange)
-            {
-                GameObject handDamage = Instantiate(handDamagePrefab, transform.position, Quaternion.identity);
-                handDamage.transform.position = transform.position + transform.forward;
-                lastAttackTime = Time.time;
-            }
-        }
+        Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 0, playerDir.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
+    }
+    
+    IEnumerator attack()
+    {
+        isInAttack = true;
+
+        gameManager.instance.playerScript.takeDamage(damageAmount);
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        isInAttack = false;
     }
 
     public void takeDamage(int amount)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject objectToSpawn;
+    [SerializeField] GameObject[] objectToSpawn;
     [SerializeField] int roundNumber;
     [SerializeField] int numToSpawn;        // enemy to spawn
     //[SerializeField] int numRemaining;    // enemy Remaining
@@ -30,11 +30,12 @@ public class spawner : MonoBehaviour
     void Update()
     {
         if (roundNumber == roundToWin)
-            gameManager.instance.youWin();
-
-        if (gameManager.instance.enemyRemaining <= 0 && !gameManager.instance.inRound)
         {
-                StartCoroutine(StartNextRound());
+            gameManager.instance.youWin();
+        }
+        else if (gameManager.instance.enemyRemaining <= 0 && !gameManager.instance.inRound)
+        {
+            StartCoroutine(StartNextRound());
         }
     }
 
@@ -61,9 +62,9 @@ public class spawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
 
             int spawnInt = Random.Range(0, spawnPos.Length);
+            GameObject randomZombie = objectToSpawn[Random.Range(0, objectToSpawn.Length)];
 
-            Instantiate(objectToSpawn, spawnPos[spawnInt].position, spawnPos[spawnInt].rotation);
-            //spawnCount++;
+            Instantiate(randomZombie, spawnPos[spawnInt].position, spawnPos[spawnInt].rotation);
 
         }
 

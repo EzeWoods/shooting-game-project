@@ -18,10 +18,10 @@ MonoBehaviour:
   shootDistance: 15
   shootRate: 0.7
   reloadTime: 0.5
-  ammoCurrent: 12
+  ammoCurrent: 7
   ammoStored: 125
   ammoMax: 12
   ammoMaxStored: 125
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   shootSound: []
   shootSoundVolume: 0
