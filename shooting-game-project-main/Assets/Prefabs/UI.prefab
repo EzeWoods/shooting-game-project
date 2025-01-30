@@ -1106,13 +1106,13 @@ RectTransform:
   - {fileID: 8148976798750221647}
   - {fileID: 4647055556438998938}
   - {fileID: 9093478842930212085}
-  - {fileID: 2170933089307648293}
   - {fileID: 184275390587088690}
+  - {fileID: 2170933089307648293}
   - {fileID: 512389818248772414}
   - {fileID: 4168260249427470417}
   - {fileID: 2309762462739231402}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1475,14 +1475,26 @@ MonoBehaviour:
   menuActive: {fileID: 0}
   menuPause: {fileID: 8311338385620835793}
   menuLose: {fileID: 5972519652113062621}
+  menuWin: {fileID: 0}
   goalCountText: {fileID: 963779283701376605}
+  roundCountText: {fileID: 0}
   pointsCountText: {fileID: 1854065362530802903}
   playerPoints: 0
+  menuBuyGun: {fileID: 0}
+  menuBuyAmmo: {fileID: 0}
+  menuBuyAmmoPrice: {fileID: 0}
+  menuBuyGunPrice: {fileID: 0}
+  menuBuyGunName: {fileID: 0}
+  uiAmmoCount: {fileID: 0}
+  uiAmmoStored: {fileID: 0}
+  uiActiveWeapon: {fileID: 0}
+  enemyRemaining: 0
   playerHPBar: {fileID: 1423233788452434197}
   playerDamageScreen: {fileID: 3651303206976821134}
   player: {fileID: 0}
   playerScript: {fileID: 0}
   isPaused: 0
+  inRound: 1
 --- !u!1 &5251684868972911989
 GameObject:
   m_ObjectHideFlags: 0

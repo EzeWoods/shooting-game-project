@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 121271205443529789}
   - component: {fileID: 5101868364776490301}
   - component: {fileID: 4906549858366106535}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ Transform:
   - {fileID: 4389662658035281651}
   - {fileID: 3045386956359508316}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1843339598316167174
 MonoBehaviour:
@@ -415,8 +415,8 @@ MonoBehaviour:
   agent: {fileID: 4906549858366106535}
   model: {fileID: 8326681049423331456}
   HP: 3
-  Points: 5
-  detectionRange: 6
+  Points: 100
+  detectionRange: 9999
   damageAmount: 2
   attackRange: 5
   attackCooldown: 3

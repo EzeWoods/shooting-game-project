@@ -28,21 +28,21 @@ public class enemyAI : MonoBehaviour, IDamage
     void Start()
     {
         colorOrig = model.material.color;
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1);
         lastAttackTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange)
-        {
+        //if (playerInRange)
+        //{
             MoveTowardsPlayer();
             if (Time.time > lastAttackTime + attackCooldown)
             {
                 AttackPlayer();
             }
-        }
+        //}
 
     }
 
@@ -103,7 +103,7 @@ public class enemyAI : MonoBehaviour, IDamage
             // Dead
             Destroy(gameObject, 1f);
             Destroy(gameObject);
-            gameManager.instance.updateGameGoal(-1);
+            gameManager.instance.updateGameGoals(-1);
             gameManager.instance.updatePlayerPoints(Points);
         }
     }

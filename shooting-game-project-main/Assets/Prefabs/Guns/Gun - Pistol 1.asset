@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Gun - Pistol 1
   m_EditorClassIdentifier: 
   model: {fileID: 9138214263312293024, guid: f59ddbbe09f18ce418eda3fc19a6a79a, type: 3}
-  shootDamage: 4
-  shootDistance: 5
-  shootRate: 4
-  ammoCurrent: 15
-  ammoMax: 15
+  name: Pistol
+  shootDamage: 1
+  shootDistance: 15
+  shootRate: 0.7
+  reloadTime: 0.5
+  ammoCurrent: 12
+  ammoStored: 125
+  ammoMax: 12
+  ammoMaxStored: 125
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0

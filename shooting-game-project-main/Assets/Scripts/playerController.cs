@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
+    [SerializeField] gunStats startingGun;
 
     [SerializeField] ParticleSystem muzzleFlashPrefab;  // Prefab for the muzzle flash effect
     [SerializeField] Transform muzzleFlashPosition; // Position where the muzzle flash should appear
@@ -32,10 +33,13 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
     bool isShooting;
     bool isSprinting;
+    bool isReloading;
+    float shootTimer;
 
     void Start()
     {
         HPOrig = HP;
+        onReset();
         updatePlayerUI();
     }
 
@@ -43,9 +47,15 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     void Update()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
-        movement();
+        
+        if(!gameManager.instance.isPaused)
+        {
+            movement();
+            selectGun();
+            shootTimer += Time.deltaTime;
+        }
+        
         sprint();
-        selectGun();
     }
 
     void movement()
@@ -71,9 +81,17 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             playerVel = Vector3.zero;
         }
 
-        if (Input.GetButton("Shoot"))
+        if (Input.GetButton("Shoot") && gunList.Count > 0 && !isReloading && shootTimer >= shootRate)
         {
-            shoot();
+            if (gunList[gunListPos].ammoCurrent > 0)
+                shoot();
+            else
+                StartCoroutine(reload());
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && gunList[gunListPos].ammoCurrent < gunList[gunListPos].ammoMax)
+        {
+            StartCoroutine(reload());
         }
     }
 
@@ -102,6 +120,9 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
     void shoot()
     {
+        shootTimer = 0;
+        gunList[gunListPos].ammoCurrent--;
+
         // Instantiate and play muzzle flash effect
         if (muzzleFlashPrefab != null && muzzleFlashPosition != null)
         {
@@ -126,6 +147,46 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             }
         }
 
+        updatePlayerUI();
+
+    }
+
+    IEnumerator reload()
+    {
+        if (gunList[gunListPos].ammoStored <= 0 || gunList[gunListPos].ammoCurrent == gunList[gunListPos].ammoMax)
+            yield break;
+
+        isReloading = true;
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(gunList[gunListPos].reloadTime);
+
+        int ammoNeeded = gunList[gunListPos].ammoMax - gunList[gunListPos].ammoCurrent;
+        int ammoToReload = Mathf.Min(ammoNeeded, gunList[gunListPos].ammoStored);
+
+        gunList[gunListPos].ammoCurrent += ammoToReload;
+        gunList[gunListPos].ammoStored -= ammoToReload;
+
+        gameManager.instance.uiAmmoCount.text = gunList[gunListPos].ammoCurrent.ToString("F0");
+        gameManager.instance.uiAmmoStored.text = gunList[gunListPos].ammoStored.ToString("F0");
+
+        isReloading = false;
+    }
+
+    public void onReset()
+    {
+        gunList.Clear();
+        getGunStats(startingGun);
+        startingGun.ammoCurrent = startingGun.ammoMax;
+        startingGun.ammoStored = startingGun.ammoMaxStored;
+    }
+
+    public void refillAmmo()
+    {
+        //gunList[gunListPos].ammoMax = gunList[gunListPos].ammoMaxStored;
+        gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
+        gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
+        updatePlayerUI();
     }
 
     public void takeDamage(int amount)
@@ -150,7 +211,13 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     public void updatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
-
+        
+        if(gunList.Count > 0)
+        {
+            gameManager.instance.uiAmmoCount.text = gunList[gunListPos].ammoCurrent.ToString("F0");
+            gameManager.instance.uiActiveWeapon.text = gunList[gunListPos].name;
+            gameManager.instance.uiAmmoStored.text = gunList[gunListPos].ammoStored.ToString("F0");
+        }
     }
 
     public void getGunStats(gunStats gun)
@@ -159,7 +226,6 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunListPos = gunList.Count - 1;
 
         changeGun();
-
     }
 
     void selectGun()
@@ -177,10 +243,14 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     }
     void changeGun()
     {
-
+        shootTimer = gunList[gunListPos].shootRate;
         shootDamage = gunList[gunListPos].shootDamage;
         shootDist = gunList[gunListPos].shootDistance;
         shootRate = gunList[gunListPos].shootRate;
+        gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
+        gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
+
+        updatePlayerUI();
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -195,5 +265,13 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         {
             Debug.Log("MuzzleFlashPosition updated successfully.");
         }
+    }
+
+    public gunStats getCurrentGun()
+    {
+        if (gunList.Count > 0)
+            return gunList[gunListPos];
+
+        return null;
     }
 }
