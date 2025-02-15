@@ -267,7 +267,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     {
         shootTimer = gunList[gunListPos].shootRate;
         shootDamage = gunList[gunListPos].shootDamage;
-        shootDist = gunList[gunListPos].shootDistance;
+        shootDist = gunList[gunListPos].shootDist;
         shootRate = gunList[gunListPos].shootRate;
         gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
         gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;

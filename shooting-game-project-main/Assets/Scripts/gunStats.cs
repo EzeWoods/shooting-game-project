@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewGun", menuName = "Weapons/GunStats")]
-public class GunStats : ScriptableObject
+public class gunStats : ScriptableObject
 {
     [Header("Gun Model & Info")]
     public GameObject model;
@@ -14,8 +14,8 @@ public class GunStats : ScriptableObject
     public float reloadTime;
 
     [Header("Ammo Stats")]
-    [SerializeField] private int ammoCurrent;
-    [SerializeField] private int ammoStored;
+    [SerializeField] public int ammoCurrent;
+    [SerializeField] public int ammoStored;
     public int ammoMax;
     public int ammoMaxStored;
 
@@ -24,9 +24,10 @@ public class GunStats : ScriptableObject
     public AudioClip[] shootSound;
     public float shootSoundVolume;
 
-    [Header("Fire Mode")]
-    public enum FireMode { SemiAuto, FullAuto, Burst }
+    [Header("Fire Mode")] // <- Moved the header above the field instead of the enum
     public FireMode fireMode;
+
+    public enum FireMode { SemiAuto, FullAuto, Burst }
 
     // Getters & Setters to manage ammo
     public int GetAmmoCurrent() => ammoCurrent;
