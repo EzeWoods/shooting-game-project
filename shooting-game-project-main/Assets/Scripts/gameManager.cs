@@ -8,6 +8,8 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
+    public Transform spawnPoint;
+
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuLose;

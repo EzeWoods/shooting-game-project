@@ -1,59 +1,66 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playerController : MonoBehaviour, IDamage, IPickup
 {
-    [SerializeField] CharacterController controller;
-    [SerializeField] LayerMask ignoreMask;
+    [Header("----- Components -----")]
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private LayerMask ignoreMask;
+    [SerializeField] private GameObject gunModel;
+    [SerializeField] private GameObject muzzleFlash;
+    [SerializeField] private AudioSource gunAudioSource;
 
-    [SerializeField] int HP;
-    [SerializeField] int speed;
-    [SerializeField] int sprintMod;
-    [SerializeField] int jumpMax;
-    [SerializeField] int jumpSpeed;
-    [SerializeField] int gravity;
+    [Header("----- Player Stats -----")]
+    [SerializeField] private int HP;
+    [SerializeField] private int speed;
+    [SerializeField] private int sprintMod;
+    [SerializeField] private int jumpMax;
+    [SerializeField] private int jumpSpeed;
+    [SerializeField] private int gravity;
 
-    [SerializeField] List<gunStats> gunList = new List<gunStats>();
-    [SerializeField] GameObject gunModel;
-    [SerializeField] int shootDist;
-    [SerializeField] int shootDamage;
-    [SerializeField] float shootRate;
-    [SerializeField] gunStats startingGun;
+    [Header("----- Gun Stats -----")]
+    [SerializeField] private List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] private int shootDist;
+    [SerializeField] private int shootDamage;
+    [SerializeField] private float shootRate;
+    [SerializeField] private gunStats startingGun;
 
-    [SerializeField] GameObject muzzleFlash; // Position where the muzzle flash should appear
+    [Header("----- Gun Audio -----")]
+    [SerializeField] private AudioClip gunfireSound;
+    [SerializeField] private float gunfireVolume = 1.0f;
 
-    Vector3 moveDir;
-    Vector3 playerVel;
+    private Vector3 moveDir;
+    private Vector3 playerVel;
 
-    int jumpCount;
-    int HPOrig;
-    int gunListPos;
+    private int jumpCount;
+    private int HPOrig;
+    private int gunListPos;
 
-    bool isShooting;
-    bool isSprinting;
-    bool isReloading;
-    float shootTimer;
+    private bool isShooting;
+    private bool isSprinting;
+    private bool isReloading;
+    private float shootTimer;
 
     void Start()
     {
         HPOrig = HP;
-        onReset();
+        ResetPlayer();
         updatePlayerUI();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist, Color.red);
-        
-        if(!gameManager.instance.isPaused)
+
+        if (!gameManager.instance.isPaused)
         {
             movement();
             selectGun();
             shootTimer += Time.deltaTime;
         }
-        
+
         sprint();
     }
 
@@ -69,9 +76,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
                    (transform.forward * Input.GetAxis("Vertical"));
 
         controller.Move(moveDir * speed * Time.deltaTime);
-
         jump();
-
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= gravity * Time.deltaTime;
 
@@ -83,7 +88,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         if (Input.GetButton("Shoot") && gunList.Count > 0 && !isReloading && shootTimer >= shootRate)
         {
             if (gunList[gunListPos].ammoCurrent > 0)
-                shoot();
+                Shoot();
             else
                 StartCoroutine(reload());
         }
@@ -117,22 +122,16 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
     }
 
-    void shoot()
+    void Shoot()
     {
+        if (gunAudioSource != null && gunfireSound != null)
+        {
+            gunAudioSource.PlayOneShot(gunfireSound, gunfireVolume);
+        }
+
         shootTimer = 0;
         gunList[gunListPos].ammoCurrent--;
 
-        // Instantiate and play muzzle flash effect
-        //if (muzzleFlashPrefab != null && muzzleFlashPosition != null)
-        //{
-        //    ParticleSystem muzzleFlash = Instantiate(muzzleFlashPrefab, muzzleFlashPosition.position, muzzleFlashPosition.rotation);
-        //    muzzleFlash.Play();
-        //    Destroy(muzzleFlash.gameObject, muzzleFlash.main.duration);
-        //}
-        //else
-        //{
-        //    Debug.LogError("Muzzle flash prefab or position is not assigned.");
-        //}
         StartCoroutine(flashMuzzleFire());
 
         RaycastHit hit;
@@ -148,7 +147,6 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
 
         updatePlayerUI();
-
     }
 
     IEnumerator flashMuzzleFire()
@@ -157,6 +155,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         yield return new WaitForSeconds(0.05f);
         muzzleFlash.SetActive(false);
     }
+
     IEnumerator reload()
     {
         if (gunList[gunListPos].ammoStored <= 0 || gunList[gunListPos].ammoCurrent == gunList[gunListPos].ammoMax)
@@ -173,26 +172,8 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunList[gunListPos].ammoCurrent += ammoToReload;
         gunList[gunListPos].ammoStored -= ammoToReload;
 
-        gameManager.instance.uiAmmoCount.text = gunList[gunListPos].ammoCurrent.ToString("F0");
-        gameManager.instance.uiAmmoStored.text = gunList[gunListPos].ammoStored.ToString("F0");
-
-        isReloading = false;
-    }
-
-    public void onReset()
-    {
-        gunList.Clear();
-        getGunStats(startingGun);
-        startingGun.ammoCurrent = startingGun.ammoMax;
-        startingGun.ammoStored = startingGun.ammoMaxStored;
-    }
-
-    public void refillAmmo()
-    {
-        //gunList[gunListPos].ammoMax = gunList[gunListPos].ammoMaxStored;
-        gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
-        gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
         updatePlayerUI();
+        isReloading = false;
     }
 
     public void takeDamage(int amount)
@@ -207,22 +188,6 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
     }
 
-    public void healDamage()
-    {
-        HP = HPOrig;
-        updatePlayerUI();
-    }
-
-    public int getHealth()
-    {
-        return HP;
-    }
-
-    public int getMaxHealth()
-    {
-        return HPOrig;
-    }
-
     IEnumerator flashScreenDamage()
     {
         gameManager.instance.playerDamageScreen.SetActive(true);
@@ -233,8 +198,8 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     public void updatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
-        
-        if(gunList.Count > 0)
+
+        if (gunList.Count > 0)
         {
             gameManager.instance.uiAmmoCount.text = gunList[gunListPos].ammoCurrent.ToString("F0");
             gameManager.instance.uiActiveWeapon.text = gunList[gunListPos].name;
@@ -263,30 +228,28 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             changeGun();
         }
     }
+
     void changeGun()
     {
         shootTimer = gunList[gunListPos].shootRate;
         shootDamage = gunList[gunListPos].shootDamage;
         shootDist = gunList[gunListPos].shootDist;
         shootRate = gunList[gunListPos].shootRate;
-        gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
-        gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
 
         updatePlayerUI();
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
 
-        //muzzleFlashPosition = gunModel.transform.Find("MuzzleFlashPosition"); // Update muzzle flash position
-
-        //if (muzzleFlashPosition == null)
-        //{
-        //    Debug.LogError("MuzzleFlashPosition not found on the gun model.");
-        //}
-        //else
-        //{
-        //    Debug.Log("MuzzleFlashPosition updated successfully.");
-        //}
+    public void ResetPlayer()
+    {
+        HP = HPOrig;
+        gunList.Clear();
+        getGunStats(startingGun);
+        startingGun.ammoCurrent = startingGun.ammoMax;
+        startingGun.ammoStored = startingGun.ammoMaxStored;
+        updatePlayerUI();
     }
 
     public gunStats getCurrentGun()
@@ -295,5 +258,56 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             return gunList[gunListPos];
 
         return null;
+    }
+
+    public void refillAmmo()
+    {
+        if (gunList.Count > 0)
+        {
+            gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
+            gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
+            updatePlayerUI();
+        }
+    }
+
+    public void onReset()
+    {
+        // Reset player health
+        HP = HPOrig;
+
+        // Clear the gun list and re-add the starting gun
+        gunList.Clear();
+        getGunStats(startingGun);
+
+        // Reset starting gun ammo
+        startingGun.ammoCurrent = startingGun.ammoMax;
+        startingGun.ammoStored = startingGun.ammoMaxStored;
+
+        // Update UI to reflect changes
+        updatePlayerUI();
+
+        // Reset player position if needed (optional, adjust as necessary)
+        controller.enabled = false;
+        transform.position = gameManager.instance.spawnPoint.position; // Ensure you have a spawnPoint set in GameManager
+        controller.enabled = true;
+    }
+
+    // Returns current health
+    public int getHealth()
+    {
+        return HP;
+    }
+
+    // Returns max health
+    public int getMaxHealth()
+    {
+        return HPOrig;
+    }
+
+    // Heals the player to full health
+    public void healDamage()
+    {
+        HP = HPOrig;
+        updatePlayerUI();
     }
 }

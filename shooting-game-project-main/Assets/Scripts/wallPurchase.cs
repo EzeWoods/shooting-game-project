@@ -4,45 +4,37 @@ using UnityEngine;
 
 public class wallPurchase : MonoBehaviour
 {
-    [SerializeField] gunStats gun;
-    [SerializeField] GameObject gunModel;
-    [SerializeField] int gunPrice;
-    [SerializeField] int ammoPrice;
+    [SerializeField] private gunStats gun;
+    [SerializeField] private GameObject gunModel;
+    [SerializeField] private int gunPrice;
+    [SerializeField] private int ammoPrice;
 
-    bool ammoPrompt;
-    bool purchasePrompt;
+    private bool ammoPrompt;
+    private bool purchasePrompt;
 
-    // Start is called before the first frame update
     void Start()
     {
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gun.model.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gun.model.GetComponent<MeshRenderer>().sharedMaterial;
+        if (gunModel != null && gun != null)
+        {
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gun.model.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gun.model.GetComponent<MeshRenderer>().sharedMaterial;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (ammoPrompt)
+            if (ammoPrompt && gameManager.instance.getPlayerPoints() >= ammoPrice)
             {
-                if (gameManager.instance.getPlayerPoints() >= ammoPrice)
-                {
-                    // fill players ammo for respective weapon
-                    gameManager.instance.playerScript.refillAmmo();
-                    gameManager.instance.updatePlayerPoints(-ammoPrice);
-                }
+                gameManager.instance.playerScript.refillAmmo();
+                gameManager.instance.updatePlayerPoints(-ammoPrice);
             }
-            else if (purchasePrompt)
+            else if (purchasePrompt && gameManager.instance.getPlayerPoints() >= gunPrice)
             {
-                if (gameManager.instance.getPlayerPoints() >= gunPrice)
-                {
-                    gameManager.instance.playerScript.getGunStats(gun);
-                    gameManager.instance.updatePlayerPoints(-gunPrice);
-                }
-
+                gameManager.instance.playerScript.getGunStats(gun);
+                gameManager.instance.updatePlayerPoints(-gunPrice);
             }
-
         }
     }
 
@@ -50,20 +42,20 @@ public class wallPurchase : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (gameManager.instance.playerScript.getCurrentGun().name != gun.name)
+            var playerGun = gameManager.instance.playerScript.getCurrentGun();
+
+            if (playerGun == null || playerGun.name != gun.name)
             {
                 gameManager.instance.updateGunPrompt(gun.name, gunPrice);
                 gameManager.instance.showBuyGunPrompt();
                 purchasePrompt = true;
             }
-            else if (gameManager.instance.playerScript.getCurrentGun().name == gun.name)
+            else
             {
                 gameManager.instance.updateAmmoBuyPrice(ammoPrice);
                 gameManager.instance.showBuyAmmoPrompt();
                 ammoPrompt = true;
             }
-
-
         }
     }
 

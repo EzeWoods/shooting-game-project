@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewGun", menuName = "Weapons/GunStats")]
-public class gunStats : ScriptableObject
+public class gunStats : MonoBehaviour
 {
     [Header("Gun Model & Info")]
     public GameObject model;
@@ -24,12 +24,11 @@ public class gunStats : ScriptableObject
     public AudioClip[] shootSound;
     public float shootSoundVolume;
 
-    [Header("Fire Mode")] // <- Moved the header above the field instead of the enum
+    [Header("Fire Mode")]
     public FireMode fireMode;
 
     public enum FireMode { SemiAuto, FullAuto, Burst }
 
-    // Getters & Setters to manage ammo
     public int GetAmmoCurrent() => ammoCurrent;
     public int GetAmmoStored() => ammoStored;
 
