@@ -31,6 +31,8 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     [SerializeField] private AudioClip gunfireSound;
     [SerializeField] private float gunfireVolume = 1.0f;
 
+    public int invCapacityLimit = 2;
+
     private Vector3 moveDir;
     private Vector3 playerVel;
 
@@ -66,6 +68,10 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
     void movement()
     {
+        bool hasNoAmmo = false;
+        bool needsReload = false;
+        bool isLowAmmo = false;
+
         if (controller.isGrounded)
         {
             jumpCount = 0;
@@ -85,12 +91,31 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             playerVel = Vector3.zero;
         }
 
+        if(gunList.Count > 0)
+        {
+            hasNoAmmo = gunList[gunListPos].ammoStored == 0 && gunList[gunListPos].ammoCurrent == 0;
+            needsReload = gunList[gunListPos].ammoCurrent == 0;
+            isLowAmmo = gunList[gunListPos].ammoStored <= (gunList[gunListPos].ammoMax + 5);
+
+            gameManager.instance.lowAmmoPrompt.SetActive(isLowAmmo && !hasNoAmmo);
+
+            if (hasNoAmmo)
+            {
+                gameManager.instance.noAmmoPrompt.SetActive(true);
+                //gameManager.instance.flashText(0.1f, gameManager.instance.noAmmoText);
+            }
+            else
+            {
+                gameManager.instance.noAmmoPrompt.SetActive(false);
+            }
+
+            gameManager.instance.reloadPrompt.SetActive(needsReload && !hasNoAmmo);
+        }
+
         if (Input.GetButton("Shoot") && gunList.Count > 0 && !isReloading && shootTimer >= shootRate)
         {
             if (gunList[gunListPos].ammoCurrent > 0)
                 Shoot();
-            else
-                StartCoroutine(reload());
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && gunList[gunListPos].ammoCurrent < gunList[gunListPos].ammoMax)
@@ -172,6 +197,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunList[gunListPos].ammoCurrent += ammoToReload;
         gunList[gunListPos].ammoStored -= ammoToReload;
 
+        gameManager.instance.reloadPrompt.SetActive(false);
         updatePlayerUI();
         isReloading = false;
     }
@@ -186,6 +212,14 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         {
             gameManager.instance.youLose();
         }
+        else if(HP <= 3)
+        {
+            gameManager.instance.lowHealthPrompt.SetActive(true);
+        }
+        else
+        {
+            gameManager.instance.lowHealthPrompt.SetActive(false);
+        }
     }
 
     IEnumerator flashScreenDamage()
@@ -199,18 +233,46 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
 
+        if(gunList.Count == 0)
+        {
+            gameManager.instance.weapon1Text.text = "";
+            gameManager.instance.weapon2Text.text = "";
+        }
+
         if (gunList.Count > 0)
         {
             gameManager.instance.uiAmmoCount.text = gunList[gunListPos].ammoCurrent.ToString("F0");
             gameManager.instance.uiActiveWeapon.text = gunList[gunListPos].name;
             gameManager.instance.uiAmmoStored.text = gunList[gunListPos].ammoStored.ToString("F0");
+
+            if (gunList[0])
+            {
+                gameManager.instance.weapon1Text.text = gunList[0].gunName;
+            }
+        }
+
+        if (gunList.Count > 1)
+        {
+            if (gunList[1])
+                gameManager.instance.weapon2Text.text = gunList[1].gunName;
+        }
+        else
+        {
+            gameManager.instance.weapon2Text.text = "";
         }
     }
 
     public void getGunStats(gunStats gun)
     {
-        gunList.Add(gun);
-        gunListPos = gunList.Count - 1;
+        if(gunList.Count >= invCapacityLimit)
+        {
+            gunList[gunListPos] = gun;
+        }
+        else
+        {
+            gunList.Add(gun);
+            gunListPos = gunList.Count - 1;
+        }
 
         changeGun();
     }
@@ -249,6 +311,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         getGunStats(startingGun);
         startingGun.ammoCurrent = startingGun.ammoMax;
         startingGun.ammoStored = startingGun.ammoMaxStored;
+        startingGun.origShootDamage = startingGun.shootDamage;
         updatePlayerUI();
     }
 

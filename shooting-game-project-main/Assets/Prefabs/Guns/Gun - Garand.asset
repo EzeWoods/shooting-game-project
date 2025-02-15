@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun - Garand
   m_EditorClassIdentifier: 
   model: {fileID: 4698201593948852689, guid: 185ce04d44da342739f0bef843698e6c, type: 3}
-  name: Garand
+  gunName: Garand
   shootDamage: 4
-  shootDistance: 7
+  shootDist: 15
   shootRate: 1.5
   reloadTime: 0.5
   ammoCurrent: 8
@@ -25,3 +25,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0
+  fireMode: 0

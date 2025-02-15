@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun - M1918Bar
   m_EditorClassIdentifier: 
   model: {fileID: 5571641588984482722, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
-  name: BAR
+  gunName: BAR
   shootDamage: 8
-  shootDistance: 7
+  shootDist: 15
   shootRate: 5
   reloadTime: 0.5
   ammoCurrent: 20
@@ -25,3 +25,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0
+  fireMode: 0

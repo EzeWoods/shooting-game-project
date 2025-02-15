@@ -13,7 +13,7 @@ public class spawner : MonoBehaviour
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] float timeBetweenRounds;
     [SerializeField] Transform[] spawnPos;
-    [SerializeField] int roundToWin;        // set to -1 if unlimited waves are wanted
+    [SerializeField] int roundToExtract;        // set to -1 if unlimited waves are wanted
 
     int spawnCount;
     bool roundStarted;
@@ -29,9 +29,9 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (roundNumber == roundToWin)
+        if (roundNumber >= roundToExtract)
         {
-            gameManager.instance.youWin();
+            gameManager.instance.canExtract = true;
         }
         else if (gameManager.instance.enemyRemaining <= 0 && !gameManager.instance.inRound)
         {

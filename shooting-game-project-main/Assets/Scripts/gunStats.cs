@@ -12,6 +12,7 @@ public class gunStats : MonoBehaviour
     public int shootDist;
     public float shootRate;
     public float reloadTime;
+    public int origShootDamage;
 
     [Header("Ammo Stats")]
     [SerializeField] public int ammoCurrent;

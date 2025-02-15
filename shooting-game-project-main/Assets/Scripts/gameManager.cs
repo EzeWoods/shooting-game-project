@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class gameManager : MonoBehaviour
 {
@@ -28,9 +29,22 @@ public class gameManager : MonoBehaviour
     [SerializeField] public TMP_Text uiAmmoStored;
     [SerializeField] public TMP_Text uiActiveWeapon;
 
+    [SerializeField] public GameObject lowHealthPrompt;
+    [SerializeField] public GameObject lowAmmoPrompt;
+    [SerializeField] public GameObject noAmmoPrompt;
+    [SerializeField] public GameObject reloadPrompt;
+
+    [SerializeField] public TMP_Text weapon1Text;
+    [SerializeField] public TMP_Text weapon2Text;
+
+    [SerializeField] public TMP_Text noAmmoText;
+    [SerializeField] public TMP_Text lowHealthText;
+
     [SerializeField] public int enemyRemaining;
 
-    public Image playerHPBar;
+    public bool canExtract;
+
+    public UnityEngine.UI.Image playerHPBar;
     public GameObject playerDamageScreen;
 
     public GameObject player;
@@ -72,7 +86,6 @@ public class gameManager : MonoBehaviour
             {
                 stateUnpause();
             }
-
         }
     }
 
@@ -193,4 +206,29 @@ public class gameManager : MonoBehaviour
     {
         roundCountText.text = round.ToString("F0");
     }
+
+    public IEnumerator flashText(float flashSpeed, TMP_Text text)
+    {
+        while (true)
+        {
+            for (float alpha = 1f; alpha >= 0.1f; alpha -= Time.deltaTime * flashSpeed)
+            {
+                setAlpha(alpha, text);
+                yield return null;
+            }
+            for (float alpha = 0.1f; alpha <= 1f; alpha += Time.deltaTime * flashSpeed)
+            {
+                setAlpha(alpha, text);
+                yield return null;
+            }
+        }
+    }
+
+    void setAlpha(float alpha, TMP_Text text)
+    {
+        Color color = text.color;
+        color.a = alpha;
+        text.color = color;
+    }
+
 }

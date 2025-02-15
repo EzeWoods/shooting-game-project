@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun - SMG
   m_EditorClassIdentifier: 
   model: {fileID: 6568467318392859275, guid: 2f2432351954f574887c1265630d38b3, type: 3}
-  name: SMG
+  gunName: SMG
   shootDamage: 1
-  shootDistance: 15
+  shootDist: 15
   shootRate: 0.2
   reloadTime: 0.5
   ammoCurrent: 20
@@ -25,3 +25,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0
+  fireMode: 0

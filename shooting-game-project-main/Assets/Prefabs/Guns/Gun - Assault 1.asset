@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun - Assault 1
   m_EditorClassIdentifier: 
   model: {fileID: 1120771731868389516, guid: 91a1240d1f973f6419765c6c99c9acd1, type: 3}
-  name: AK-47
+  gunName: AR
   shootDamage: 6
-  shootDistance: 7
+  shootDist: 15
   shootRate: 1.5
   reloadTime: 0.5
   ammoCurrent: 10
@@ -25,3 +25,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0
+  fireMode: 0

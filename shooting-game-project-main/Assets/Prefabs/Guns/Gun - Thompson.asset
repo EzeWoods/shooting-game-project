@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun - Thompson
   m_EditorClassIdentifier: 
   model: {fileID: 5494625650325380441, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
-  name: M1A1
+  gunName: Thompson
   shootDamage: 3
-  shootDistance: 6
+  shootDist: 15
   shootRate: 10
   reloadTime: 0.5
   ammoCurrent: 30
@@ -25,3 +25,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound: []
   shootSoundVolume: 0
+  fireMode: 0
