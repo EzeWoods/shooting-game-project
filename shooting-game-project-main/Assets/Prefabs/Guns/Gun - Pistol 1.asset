@@ -19,8 +19,8 @@ MonoBehaviour:
   shootRate: 0.7
   reloadTime: 0.5
   origShootDamage: 1
-  ammoCurrent: 0
-  ammoStored: 0
+  ammoCurrent: 12
+  ammoStored: 116
   ammoMax: 12
   ammoMaxStored: 125
   hitEffect: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}

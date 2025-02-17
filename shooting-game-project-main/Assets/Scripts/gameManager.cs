@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
+using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] public TMP_Text noAmmoText;
     [SerializeField] public TMP_Text lowHealthText;
+    [SerializeField] public TMP_Text lowAmmoText;
 
     [SerializeField] public int enemyRemaining;
 
@@ -66,6 +68,15 @@ public class gameManager : MonoBehaviour
         updatePlayerPoints(0);
     }
 
+    Color whiteFull = new Color(1, 1, 1, 1);
+    Color whiteClear = new Color(1, 1, 1, 0);
+
+    Color redFull = new Color(1, 0, 0, 1);
+    Color redClear = new Color(1, 0, 0, 0);
+
+    Color orangeFull = new Color(1, 0.63f, 0.019f, 1);
+    Color orangeClear = new Color(1, 0.63f, 0.019f, 0);
+
     // Update is called once per frame
     void Update()
     {
@@ -87,6 +98,10 @@ public class gameManager : MonoBehaviour
                 stateUnpause();
             }
         }
+
+        lowHealthText.color = flashText(3, redFull, redClear);
+        noAmmoText.color = flashText(3, redFull, redClear);
+        lowAmmoText.color = flashText(3, orangeFull, orangeClear);
     }
 
     public void statePause()
@@ -207,28 +222,13 @@ public class gameManager : MonoBehaviour
         roundCountText.text = round.ToString("F0");
     }
 
-    public IEnumerator flashText(float flashSpeed, TMP_Text text)
+    public Color flashText(int flashSpeed, Color col1, Color col2)
     {
-        while (true)
-        {
-            for (float alpha = 1f; alpha >= 0.1f; alpha -= Time.deltaTime * flashSpeed)
-            {
-                setAlpha(alpha, text);
-                yield return null;
-            }
-            for (float alpha = 0.1f; alpha <= 1f; alpha += Time.deltaTime * flashSpeed)
-            {
-                setAlpha(alpha, text);
-                yield return null;
-            }
-        }
-    }
+        Color colSolid = new Color(col1.r, col1.g, col1.b, 1);
+        Color colTrans = new Color(col2.r, col2.g, col1.b, 0);
+        Color colFinal = Color.Lerp(colSolid, colTrans, Mathf.Sin(Time.time * flashSpeed));
 
-    void setAlpha(float alpha, TMP_Text text)
-    {
-        Color color = text.color;
-        color.a = alpha;
-        text.color = color;
+        return colFinal;
     }
 
 }

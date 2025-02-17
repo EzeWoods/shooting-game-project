@@ -1,19 +1,18 @@
+using TMPro;
 using UnityEngine;
 
 public class extractionZone : MonoBehaviour
 {
     [SerializeField] int extractPrice; // Optional
+    [SerializeField] GameObject extractText;
     bool purchasePrompt;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (gameManager.instance.canExtract)
         {
-            if (purchasePrompt)
-            {
-                gameManager.instance.youWin();
-            }
+            extractText.SetActive(true);
         }
     }
 
@@ -23,11 +22,8 @@ public class extractionZone : MonoBehaviour
         {
             if (gameManager.instance.canExtract)
             {
-                gameManager.instance.updateGunPrompt("Extract", 0);
-                gameManager.instance.showBuyGunPrompt();
-                purchasePrompt = true;
+                gameManager.instance.youWin();
             }
-
 
         }
     }
