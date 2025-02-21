@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8848a11ac9cb0409018330e1a5040c, type: 3}
+  m_Name: Gun - SMG
+  m_EditorClassIdentifier: 
+  model: {fileID: 6568467318392859275, guid: 2f2432351954f574887c1265630d38b3, type: 3}
+  gunName: SMG
+  shootDamage: 1
+  shootDist: 15
+  shootRate: 0.2
+  reloadTime: 0.5
+  ammoCurrent: 20
+  ammoStored: 125
+  ammoMax: 25
+  ammoMaxStored: 125
+  hitEffect: {fileID: 0}
+  shootSound: []
+  shootSoundVolume: 0
+  fireMode: 0
