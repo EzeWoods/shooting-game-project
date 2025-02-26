@@ -1,5 +1,6 @@
 public interface IPickup
 {
-    public void getGunStats(gunStats gun);
+    public void GetGunStats(gunStats gun);
+    void HealPlayer(playerController player);
 }
 

@@ -27,12 +27,12 @@ public class wallPurchase : MonoBehaviour
         {
             if (ammoPrompt && gameManager.instance.getPlayerPoints() >= ammoPrice)
             {
-                gameManager.instance.playerScript.refillAmmo();
+                gameManager.instance.playerScript.RefillAmmo();
                 gameManager.instance.updatePlayerPoints(-ammoPrice);
             }
             else if (purchasePrompt && gameManager.instance.getPlayerPoints() >= gunPrice)
             {
-                gameManager.instance.playerScript.getGunStats(gun);
+                gameManager.instance.playerScript.GetGunStats(gun);
                 gameManager.instance.updatePlayerPoints(-gunPrice);
             }
         }
@@ -42,7 +42,7 @@ public class wallPurchase : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var playerGun = gameManager.instance.playerScript.getCurrentGun();
+            var playerGun = gameManager.instance.playerScript.GetCurrentGun();
 
             if (playerGun == null || playerGun.name != gun.name)
             {

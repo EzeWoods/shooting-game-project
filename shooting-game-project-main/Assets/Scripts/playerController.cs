@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +20,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     [SerializeField] private int gravity;
 
     [Header("----- Gun Stats -----")]
-    [SerializeField] private List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] private List<gunStats> gunList = new();
     [SerializeField] private int shootDist;
     [SerializeField] private int shootDamage;
     [SerializeField] private float shootRate;
@@ -30,6 +29,10 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     [Header("----- Gun Audio -----")]
     [SerializeField] private AudioClip gunfireSound;
     [SerializeField] private float gunfireVolume = 1.0f;
+
+    [Header("----- Healing Items -----")]
+    [SerializeField] private List<healingItems> healingItemList = new();
+    private int healingItemPos = 0;
 
     public int invCapacityLimit = 2;
 
@@ -49,7 +52,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     {
         HPOrig = HP;
         ResetPlayer();
-        updatePlayerUI();
+        UpdatePlayerUI();
     }
 
     void Update()
@@ -58,15 +61,15 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
         if (!gameManager.instance.isPaused)
         {
-            movement();
-            selectGun();
+            Movement();
+            SelectGun();
             shootTimer += Time.deltaTime;
         }
 
-        sprint();
+        Sprint();
     }
 
-    void movement()
+    void Movement()
     {
         bool hasNoAmmo = false;
         bool needsReload = false;
@@ -81,8 +84,8 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         moveDir = (transform.right * Input.GetAxis("Horizontal")) +
                    (transform.forward * Input.GetAxis("Vertical"));
 
-        controller.Move(moveDir * speed * Time.deltaTime);
-        jump();
+        controller.Move(speed * Time.deltaTime * moveDir);
+        Jump();
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= gravity * Time.deltaTime;
 
@@ -91,7 +94,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             playerVel = Vector3.zero;
         }
 
-        if(gunList.Count > 0)
+        if (gunList.Count > 0)
         {
             hasNoAmmo = gunList[gunListPos].ammoStored == 0 && gunList[gunListPos].ammoCurrent == 0;
             needsReload = gunList[gunListPos].ammoCurrent == 0;
@@ -120,11 +123,11 @@ public class playerController : MonoBehaviour, IDamage, IPickup
 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && gunList[gunListPos].ammoCurrent < gunList[gunListPos].ammoMax)
         {
-            StartCoroutine(reload());
+            StartCoroutine(Reload());
         }
     }
 
-    void sprint()
+    void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
         {
@@ -138,7 +141,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
     }
 
-    void jump()
+    void Jump()
     {
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
@@ -157,7 +160,7 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         shootTimer = 0;
         gunList[gunListPos].ammoCurrent--;
 
-        StartCoroutine(flashMuzzleFire());
+        StartCoroutine(FlashMuzzleFire());
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreMask))
@@ -171,17 +174,17 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             }
         }
 
-        updatePlayerUI();
+        UpdatePlayerUI();
     }
 
-    IEnumerator flashMuzzleFire()
+    IEnumerator FlashMuzzleFire()
     {
         muzzleFlash.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         muzzleFlash.SetActive(false);
     }
 
-    IEnumerator reload()
+    IEnumerator Reload()
     {
         if (gunList[gunListPos].ammoStored <= 0 || gunList[gunListPos].ammoCurrent == gunList[gunListPos].ammoMax)
             yield break;
@@ -198,21 +201,39 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         gunList[gunListPos].ammoStored -= ammoToReload;
 
         gameManager.instance.reloadPrompt.SetActive(false);
-        updatePlayerUI();
+        UpdatePlayerUI();
         isReloading = false;
     }
+    public void HealAmount(int amount)
+    {
 
+        HP = Mathf.Min(HP + amount, HPOrig);
+
+        UpdatePlayerUI();
+
+        if (HP > 3)
+        {
+            gameManager.instance.lowHealthPrompt.SetActive(false);
+        }
+    }
     public void takeDamage(int amount)
     {
         HP -= amount;
-        updatePlayerUI();
-        StartCoroutine(flashScreenDamage());
+        UpdatePlayerUI();
+        StartCoroutine(FlashScreenDamage());
+
+        playerRegen healthRegen = GetComponent<playerRegen>();
+        if (healthRegen != null)
+        {
+            healthRegen.OnPlayerDamaged();
+        }
+
 
         if (HP <= 0)
         {
             gameManager.instance.youLose();
         }
-        else if(HP <= 3)
+        else if (HP <= 3)
         {
             gameManager.instance.lowHealthPrompt.SetActive(true);
         }
@@ -222,18 +243,18 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
     }
 
-    IEnumerator flashScreenDamage()
+    IEnumerator FlashScreenDamage()
     {
         gameManager.instance.playerDamageScreen.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         gameManager.instance.playerDamageScreen.SetActive(false);
     }
 
-    public void updatePlayerUI()
+    public void UpdatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
 
-        if(gunList.Count == 0)
+        if (gunList.Count == 0)
         {
             gameManager.instance.weapon1Text.text = "";
             gameManager.instance.weapon2Text.text = "";
@@ -262,9 +283,9 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         }
     }
 
-    public void getGunStats(gunStats gun)
+    public void GetGunStats(gunStats gun)
     {
-        if(gunList.Count >= invCapacityLimit)
+        if (gunList.Count >= invCapacityLimit)
         {
             gunList[gunListPos] = gun;
         }
@@ -274,31 +295,31 @@ public class playerController : MonoBehaviour, IDamage, IPickup
             gunListPos = gunList.Count - 1;
         }
 
-        changeGun();
+        ChangeGun();
     }
 
-    void selectGun()
+    void SelectGun()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos < gunList.Count - 1)
         {
             gunListPos++;
-            changeGun();
+            ChangeGun();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && gunListPos > 0)
         {
             gunListPos--;
-            changeGun();
+            ChangeGun();
         }
     }
 
-    void changeGun()
+    void ChangeGun()
     {
         shootTimer = gunList[gunListPos].shootRate;
         shootDamage = gunList[gunListPos].shootDamage;
         shootDist = gunList[gunListPos].shootDist;
         shootRate = gunList[gunListPos].shootRate;
 
-        updatePlayerUI();
+        UpdatePlayerUI();
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -308,14 +329,14 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     {
         HP = HPOrig;
         gunList.Clear();
-        getGunStats(startingGun);
+        GetGunStats(startingGun);
         startingGun.ammoCurrent = startingGun.ammoMax;
         startingGun.ammoStored = startingGun.ammoMaxStored;
         startingGun.origShootDamage = startingGun.shootDamage;
-        updatePlayerUI();
+        UpdatePlayerUI();
     }
 
-    public gunStats getCurrentGun()
+    public gunStats GetCurrentGun()
     {
         if (gunList.Count > 0)
             return gunList[gunListPos];
@@ -323,31 +344,31 @@ public class playerController : MonoBehaviour, IDamage, IPickup
         return null;
     }
 
-    public void refillAmmo()
+    public void RefillAmmo()
     {
         if (gunList.Count > 0)
         {
             gunList[gunListPos].ammoCurrent = gunList[gunListPos].ammoMax;
             gunList[gunListPos].ammoStored = gunList[gunListPos].ammoMaxStored;
-            updatePlayerUI();
+            UpdatePlayerUI();
         }
     }
 
-    public void onReset()
+    public void OnReset()
     {
         // Reset player health
         HP = HPOrig;
 
         // Clear the gun list and re-add the starting gun
         gunList.Clear();
-        getGunStats(startingGun);
+        GetGunStats(startingGun);
 
         // Reset starting gun ammo
         startingGun.ammoCurrent = startingGun.ammoMax;
         startingGun.ammoStored = startingGun.ammoMaxStored;
 
         // Update UI to reflect changes
-        updatePlayerUI();
+        UpdatePlayerUI();
 
         // Reset player position if needed (optional, adjust as necessary)
         controller.enabled = false;
@@ -356,21 +377,26 @@ public class playerController : MonoBehaviour, IDamage, IPickup
     }
 
     // Returns current health
-    public int getHealth()
+    public int GetHealth()
     {
         return HP;
     }
 
     // Returns max health
-    public int getMaxHealth()
+    public int GetMaxHealth()
     {
         return HPOrig;
     }
 
     // Heals the player to full health
-    public void healDamage()
+    public void HealDamage()
     {
         HP = HPOrig;
-        updatePlayerUI();
+        UpdatePlayerUI();
+    }
+
+    public void HealPlayer(playerController player)
+    {
+        throw new System.NotImplementedException();
     }
 }

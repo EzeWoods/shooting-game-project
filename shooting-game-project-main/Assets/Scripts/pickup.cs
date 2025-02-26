@@ -16,7 +16,7 @@ public class pickup : MonoBehaviour
         if (pick != null)
         {
             //transfer the gun to the object that entered trigger
-            pick.getGunStats(gun);
+            pick.GetGunStats(gun);
             Destroy(gameObject);
         }
     }

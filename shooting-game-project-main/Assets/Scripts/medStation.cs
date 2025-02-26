@@ -16,7 +16,7 @@ public class medStation : MonoBehaviour
             {
                 if (gameManager.instance.getPlayerPoints() >= healPrice)
                 {
-                    gameManager.instance.playerScript.healDamage();
+                    gameManager.instance.playerScript.HealDamage();
                     gameManager.instance.updatePlayerPoints(-healPrice);
                 }
 
@@ -29,7 +29,7 @@ public class medStation : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (gameManager.instance.playerScript.getHealth() < gameManager.instance.playerScript.getMaxHealth())
+            if (gameManager.instance.playerScript.GetHealth() < gameManager.instance.playerScript.GetMaxHealth())
             {
                 gameManager.instance.updateGunPrompt("Health", healPrice);
                 gameManager.instance.showBuyGunPrompt();

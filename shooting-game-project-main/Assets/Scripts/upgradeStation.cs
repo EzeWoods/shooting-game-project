@@ -17,9 +17,9 @@ public class upgradeStation : MonoBehaviour
                 if (gameManager.instance.getPlayerPoints() >= upgradePrice && upgradeCount < upgradeLimit)
                 {
                     upgradeCount++;
-                    int newDamage = gameManager.instance.playerScript.getCurrentGun().shootDamage * 2;
+                    int newDamage = gameManager.instance.playerScript.GetCurrentGun().shootDamage * 2;
 
-                    gameManager.instance.playerScript.getCurrentGun().shootDamage = newDamage;
+                    gameManager.instance.playerScript.GetCurrentGun().shootDamage = newDamage;
 
                     Debug.Log("Upgrade!");
                 }
