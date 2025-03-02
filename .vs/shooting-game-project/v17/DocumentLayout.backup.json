@@ -1,58 +1,72 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\",
+  "WorkspaceRootPath": "C:\\Users\\caleb\\source\\repos\\shooting game project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\gameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\gunStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\IDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\IPickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\medStation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\playerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\upgradeStation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\SaveSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\cameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\MeleeWeapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuButtons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelExit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\extractionZone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +76,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,28 +84,119 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "ZombieHandDamage.cs",
               "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
               "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\ZombieHandDamage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.189Z",
+              "WhenOpened": "2025-03-02T18:11:22.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "wallPurchase.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
+              "Title": "SaveSystem.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\SaveSystem.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\SaveSystem.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\SaveSystem.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\SaveSystem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.165Z",
+              "WhenOpened": "2025-03-02T18:11:22.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "playerSettings.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerSettings.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerSettings.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerSettings.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:22.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "playerController.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAqwK4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:22.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "pickup.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:22.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MeleeWeapon.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\MeleeWeapon.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\MeleeWeapon.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\MeleeWeapon.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\MeleeWeapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:22.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "gameManager.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAAEYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "mainMenuManager.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuManager.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuManager.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuManager.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:22.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "enemyAI.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAKkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.812Z",
               "EditorCaption": ""
             },
             {
@@ -99,142 +204,168 @@
               "DocumentIndex": 7,
               "Title": "spawner.cs",
               "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
               "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\spawner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.141Z",
+              "WhenOpened": "2025-03-02T18:11:22.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "playerController.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\playerController.cs",
+              "Title": "upgradeStation.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\upgradeStation.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\upgradeStation.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\upgradeStation.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\upgradeStation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.117Z",
+              "WhenOpened": "2025-03-02T18:11:22.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "pickup.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\pickup.cs",
+              "Title": "wallPurchase.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\wallPurchase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "medStation.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IPickup.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IDamage.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "gunStats.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:37.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "gameManager.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\gameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:36.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "enemyAI.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\enemyAI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:36.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "cameraController.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:36.92Z",
+              "WhenOpened": "2025-03-02T18:11:22.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "buttonFunctions.cs",
-              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
-              "RelativeDocumentMoniker": "shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
-              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
-              "RelativeToolTip": "shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
+              "Title": "medStation.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\medStation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T22:02:36.382Z",
+              "WhenOpened": "2025-03-02T18:11:22.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "mainMenuButtons.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuButtons.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuButtons.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuButtons.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\mainMenuButtons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LevelManager.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelManager.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelManager.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelManager.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LevelExit.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelExit.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelExit.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelExit.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\LevelExit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IPickup.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IDamage.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\IDamage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "gunStats.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\gunStats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "extractionZone.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\extractionZone.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\extractionZone.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\extractionZone.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\extractionZone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "cameraController.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\cameraController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "buttonFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
+              "RelativeDocumentMoniker": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
+              "ToolTip": "C:\\Users\\caleb\\source\\repos\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
+              "RelativeToolTip": "..\\shooting-game-project\\shooting-game-project-main\\Assets\\Scripts\\buttonFunctions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T18:11:21.391Z",
               "EditorCaption": ""
             }
           ]
